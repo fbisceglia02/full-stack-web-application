@@ -1,0 +1,2 @@
+Richiesta GET: richiede al server delle informazioni.
+Richiesta POST: invia delle informazioni al server (ex. modificare database)
