@@ -25,25 +25,26 @@
           
         </div>
       </nav>
-      <div class="accordion m-5" id="accordionExample"> <!--contenitore di tutti gli accordion-->
-        {% for post in posts %}
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              {{ post.titolo }}
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-            {{ post.info }}
-            <form action="{{post.id}}/delete" method="POST"> <!--eliminare quell'id-->
-              <button type="submit" class="btn btn-danger btn-sm my-2">Elimina</button>
-            </form>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+
+    <form method="post" class="m-5">
+<!-- titolo -->
+      <div class="form-group">
+        <label for="titolo">Titolo</label>
+        <input type="text" name="titolo" placeholder="Inserisci un titolo" class="form-control" value="{{ request.form['titolo'] }}" required>
       </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<!-- info -->
+      <div class="form-group">
+        <label for="info">Info</label>
+        <textarea name="info" placeholder="Inserisci delle informazioni" class="form-control">{{ request.form['info'] }}</textarea>
+      </div>
+
+      <div class="form-group my-4">
+        <button type="submit" class="btn btn-primary">Crea Post</button>
+      </div>
+    </form>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>
 </html>

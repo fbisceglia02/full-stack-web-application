@@ -2,9 +2,8 @@
 DROP TABLE IF EXISTS posts;
 
 -- posts: promemoria
-CREATE TABLE posts (
-    -- creata tabella
-
+CREATE TABLE posts ( -- creata tabella
+    id INTEGER PRIMARY KEY AUTOINCREMENT, -- aggiungiamo un identificatore univoco
     titolo TEXT,
     info TEXT
 );
